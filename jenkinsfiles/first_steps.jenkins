@@ -1,4 +1,4 @@
-// мой первый пайплайн
+// deploy
 
 pipeline {
     agent any
@@ -6,8 +6,7 @@ pipeline {
         timestamps()
     }
     stages {
-
-        stage("Second step") {
+        stage("deploy bot") {
             steps {
                 sh "ssh root@prod1 'cd /var/github && git clone git@github.com:khasan0330/python.git'"
             }
