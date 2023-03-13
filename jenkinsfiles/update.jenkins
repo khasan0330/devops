@@ -8,7 +8,10 @@ pipeline {
     stages {
         stage("update bot") {
             steps {
-                sh "ssh root@prod1 'cd /var/github/python && git push'"
+                echo "==============Start update code================================"
+                dir ('/var/github/python') {
+                sh "ssh root@prod1 'git push'"
+                }
             }
         }
     }
