@@ -13,7 +13,7 @@ pipeline {
         }
         stage("Second step") {
             steps {
-                sh "ssh root@192.168.100.174 'cd /var/github && git clone git@github.com:khasan0330/python.git'"
+                sh "ssh root@prod1 'cd /var/github && git clone git@github.com:khasan0330/python.git'"
             }
         }
     }
