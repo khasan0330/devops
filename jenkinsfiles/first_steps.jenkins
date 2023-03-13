@@ -1,5 +1,5 @@
 #!groovy
-// Check ub1 properties
+// мой первый пайплайн
 properties([disableConcurrentBuilds()])
 
 pipeline {
