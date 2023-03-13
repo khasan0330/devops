@@ -3,15 +3,11 @@
 properties([disableConcurrentBuilds()])
 
 pipeline {
-    agent {
-         node { label 'main' }
-        }
-
-
+    agent any
     stages {
         stage("First step") {
             steps {
-                sh 'ssh root@192.168.100.174 \'hostname\''
+                sh "ssh root@192.168.100.174 'hostname'"
             }
         }
         stage("Second step") {
