@@ -1,6 +1,4 @@
-#!groovy
 // мой первый пайплайн
-properties([disableConcurrentBuilds()])
 
 pipeline {
     agent any
