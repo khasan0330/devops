@@ -1,0 +1,15 @@
+// update
+
+pipeline {
+    agent any
+    options {
+        timestamps()
+    }
+    stages {
+        stage("update bot") {
+            steps {
+                sh "ssh root@prod1 'cd /var/github/python && git push'"
+            }
+        }
+    }
+}
