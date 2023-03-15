@@ -2,11 +2,21 @@
 
 pipeline {
     agent any
+    options {
+        timestamps()
+    }
     stages {
         stage("first command") {
             steps {
                 sh "ssh root@server 'ip address'"
             }
         }
+    stage("second command") {
+            steps {
+                sh "ssh root@server 'uptime'"
+                sh "ssh root@server 'hostname'"
+            }
+        }
     }
 }
+
