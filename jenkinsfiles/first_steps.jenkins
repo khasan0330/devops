@@ -11,10 +11,9 @@ pipeline {
                 sh "ssh root@server 'ip address'"
             }
         }
-    stage("second command") {
+        stage("second command") {
             steps {
                 sh "ssh root@server 'uptime'"
-                sh "ssh root@server 'hostname'"
             }
         }
     }
