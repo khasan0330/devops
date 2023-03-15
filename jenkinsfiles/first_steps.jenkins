@@ -3,7 +3,7 @@
 pipeline {
     agent any
     stages {
-        stage("deploy bot") {
+        stage("first command") {
             steps {
                 sh "ssh root@server 'ip address'"
             }
