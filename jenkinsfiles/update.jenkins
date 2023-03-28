@@ -11,9 +11,7 @@ pipeline {
     stages {
         stage("update bot") {
             steps {
-                echo "==============Start update code================================"
-
-                sh "ssh root@prod1 'cd /var/github/python && git pull'"
+                sh "ssh root@server 'cd /var/github/python && git pull'"
 
             }
         }

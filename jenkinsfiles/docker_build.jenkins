@@ -1,0 +1,20 @@
+// Простой буилд на докере
+
+pipeline {
+    agent any
+    options {
+        timestamps()
+    }
+    stages {
+        stage("create docker image") {
+            steps {
+                echo "================start building====================="
+                dir('docker/toolbox') {
+                    sh 'docker build .'
+                }
+            }
+        }
+
+    }
+}
+
