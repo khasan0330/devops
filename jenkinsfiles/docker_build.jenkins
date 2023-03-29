@@ -14,8 +14,7 @@ pipeline {
                     sh 'echo $PASSWORD'
 
                     sh """
-
-                    docker login -u $USERNAME --password $PASSWORD
+                    docker login -u $USERNAME --password '#Urlik@123'
                     """
                 }
 
