@@ -6,15 +6,34 @@ pipeline {
         timestamps()
     }
     stages {
+        stage("docker login") {
+            steps {
+                echo "------------------( docker login )-------------------"
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_micros', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh """
+                    docker login -u $USERNAME -p $PASSWORD
+                    """
+                }
+
+            }
+        }
+
         stage("create docker image") {
             steps {
                 echo "------------------( start building )-------------------"
                 dir('docker/toolbox') {
-                    sh 'docker build -t web:1.0.0 .'
+                    sh 'docker build -t  khdev/tgbot:latest .'
                 }
-                echo "------------------( image to tar )-------------------"
-                sh 'docker save web >./webserver.tar'
 
+            }
+        }
+
+        stage("docker push") {
+            steps {
+               echo "------------------( push image )-------------------"
+                sh '''
+                docker push khdev/tgbot:latest
+                '''
             }
         }
 
