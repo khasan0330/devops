@@ -8,9 +8,9 @@ pipeline {
     stages {
         stage("create docker image") {
             steps {
-                echo "================start building====================="
+                echo "------------------( start building )-------------------"
                 dir('docker/toolbox') {
-                    sh 'docker build .'
+                    sh 'docker build -t web:1.0.0 .'
                 }
             }
         }
