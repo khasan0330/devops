@@ -12,6 +12,9 @@ pipeline {
                 dir('docker/toolbox') {
                     sh 'docker build -t web:1.0.0 .'
                 }
+                echo "------------------( image to tar )-------------------"
+                sh 'docker save web >./webserver.tar'
+
             }
         }
 
