@@ -14,7 +14,7 @@ pipeline {
                     sh 'echo $PASSWORD'
 
                     sh """
-                    docker login -u $USERNAME --password '#Urlik@123'
+                    docker login -u $USERNAME -p '#Urlik@123'
                     """
                 }
 
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 echo "------------------( start building )-------------------"
                 dir('docker/toolbox') {
-                    sh 'docker build -t  khdev/tgbot:latest .'
+                    sh 'docker build -t  telegram/prtg1:latest .'
                 }
 
             }
@@ -35,7 +35,7 @@ pipeline {
             steps {
                echo "------------------( push image )-------------------"
                 sh '''
-                docker push khdev/tgbot:latest
+                docker push telegram/prtg1:latest
                 '''
             }
         }
